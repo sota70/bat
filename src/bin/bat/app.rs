@@ -119,10 +119,18 @@ impl App {
                     PagingMode::Always
                 }
             }
-            Some("never") => PagingMode::Never,
+            // Some("never") => PagingMode::Never,
+            Some("never") => {
+                if self.matches.get_flag("allow-paging") {
+                    PagingMode::Always
+                } else {
+                    PagingMode::Never
+                }
+            }
             Some("auto") | None => {
                 // If we have -pp as an option when in auto mode, the pager should be disabled.
-                if extra_plain || self.matches.get_flag("no-paging") {
+                // if extra_plain || self.matches.get_flag("no-paging") {
+                if extra_plain {
                     PagingMode::Never
                 } else if inputs.iter().any(Input::is_stdin) {
                     // If we are reading from stdin, only enable paging if we write to an

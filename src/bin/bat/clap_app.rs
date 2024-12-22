@@ -320,29 +320,29 @@ pub fn build_app(interactive_output: bool) -> Command {
             Arg::new("paging")
                 .long("paging")
                 .overrides_with("paging")
-                .overrides_with("no-paging")
+                .overrides_with("allow-paging")
                 .value_name("when")
                 .value_parser(["auto", "never", "always"])
-                .default_value("auto")
+                .default_value("never")
                 .hide_default_value(true)
-                .help("Specify when to use the pager, or use `-P` to disable (*auto*, never, always).")
+                .help("Specify when to use the pager, or use `-P` to enable (auto, *never*, always).")
                 .long_help(
-                    "Specify when to use the pager. To disable the pager, use \
-                    --paging=never' or its alias,'-P'. To disable the pager permanently, \
+                    "Specify when to use the pager. To enable the pager, use \
+                    --paging=always' or its alias,'-P'. To disable the pager permanently, \
                     set BAT_PAGING to 'never'. To control which pager is used, see the \
                     '--pager' option. Possible values: *auto*, never, always."
                 ),
         )
         .arg(
-            Arg::new("no-paging")
+            Arg::new("allow-paging")
                 .short('P')
-                .long("no-paging")
-                .alias("no-pager")
+                .long("allow-paging")
+                .alias("allow-pager")
                 .action(ArgAction::SetTrue)
-                .overrides_with("no-paging")
+                .overrides_with("allow-paging")
                 .hide(true)
                 .hide_short_help(true)
-                .help("Alias for '--paging=never'")
+                .help("Alias for '--paging=always'")
             )
         .arg(
             Arg::new("pager")
