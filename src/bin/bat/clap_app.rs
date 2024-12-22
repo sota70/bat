@@ -1,3 +1,7 @@
+/*
+ * This file has been modified by sota70(https://github.com/sota70)
+ * 2024/12/23
+ */
 use bat::style::StyleComponentList;
 use clap::{
     crate_name, crate_version, value_parser, Arg, ArgAction, ArgGroup, ColorChoice, Command,

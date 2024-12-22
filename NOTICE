@@ -4,3 +4,8 @@ bat is made available under the terms of either the MIT License or the Apache
 License 2.0, at your option.
 
 See the LICENSE-APACHE and LICENSE-MIT files for license details.
+
+--no-paging option has been removed.
+--allow-paging option has been added
+--paging option's default value has been set to never.
+All changes above is made by sota70.(https://github.com/sota70)
